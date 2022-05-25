@@ -20,7 +20,7 @@ public class Sudoku
     int matu [][];
  //teste
     
-    
+    //testeT
     
     // Constructor
     Sudoku(int N, int K)
