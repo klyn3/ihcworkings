@@ -22,6 +22,8 @@ public class Sudoku
     
     //testeT
     
+    //aaaa
+    
     // Constructor
     Sudoku(int N, int K)
     {
