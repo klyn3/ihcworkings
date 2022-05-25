@@ -18,7 +18,10 @@ public class Sudoku
     int SRN; // square root of N
     int K; // No. Of missing digits
     int matu [][];
- 
+ //teste
+    
+    
+    
     // Constructor
     Sudoku(int N, int K)
     {
