@@ -33,7 +33,6 @@ public class GameBoard {
         }
         
         K = (int)(Math.random() * 15) + 10;
-        System.out.println("K");
         
         
         
