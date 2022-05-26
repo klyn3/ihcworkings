@@ -42,7 +42,7 @@ public class primarypage implements Initializable {
 	int player_selected_row;
 	int player_selected_col;
 
-	/***
+	/*
 	 * On layout load, initialize the game board, call the drawOnCanvas method
 	 * and instantiate the selected cell.
         * @param arg0
@@ -51,7 +51,7 @@ public class primarypage implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		//Create an instance of our gameboard
-		gameboard = new GameBoard();
+		gameboard = new GameBoard(3);
 		//Get graphics context from canvas
 		GraphicsContext context = canvas.getGraphicsContext2D();
 		//Call drawOnCanvas method, with the context we have gotten from the canvas
@@ -61,7 +61,7 @@ public class primarypage implements Initializable {
 		player_selected_col = 0;
 	}
 
-	/***
+	/*
 	 *
 	 * @param context pass the GraphicsContext instance of a canvas
 	 *
@@ -163,7 +163,7 @@ public class primarypage implements Initializable {
 
 	}
 
-	/***
+	/*
 	 * Method connected with the canvas onclick event handler
 	 */
 	public void canvasMouseClicked() {
@@ -188,7 +188,7 @@ public class primarypage implements Initializable {
 		});
 	}
 
-	/***
+	/*
 	 * Method connected with a button onclick event handler
 	 */
 	public void buttonOnePressed() {
@@ -200,7 +200,7 @@ public class primarypage implements Initializable {
 		drawOnCanvas(canvas.getGraphicsContext2D());
 	}
 
-	/***
+	/*
 	 * Method connected with a button onclick event handler
 	 */
 	public void buttonTwoPressed() {
@@ -208,7 +208,7 @@ public class primarypage implements Initializable {
 		drawOnCanvas(canvas.getGraphicsContext2D());
 	}
 
-	/***
+	/*
 	 * Method connected with a button onclick event handler
 	 */
 	public void buttonThreePressed() {
@@ -216,7 +216,7 @@ public class primarypage implements Initializable {
 		drawOnCanvas(canvas.getGraphicsContext2D());
 	}
 
-	/***
+	/*
 	 * Method connected with a button onclick event handler
 	 */
 	public void buttonFourPressed() {
@@ -224,7 +224,7 @@ public class primarypage implements Initializable {
 		drawOnCanvas(canvas.getGraphicsContext2D());
 	}
 
-	/***
+	/*
 	 * Method connected with a button onclick event handler
 	 */
 	public void buttonFivePressed() {
@@ -232,7 +232,7 @@ public class primarypage implements Initializable {
 		drawOnCanvas(canvas.getGraphicsContext2D());
 	}
 
-	/***
+	/*
 	 * Method connected with a button onclick event handler
 	 */
 	public void buttonSixPressed() {
@@ -240,7 +240,7 @@ public class primarypage implements Initializable {
 		drawOnCanvas(canvas.getGraphicsContext2D());
 	}
 
-	/***
+	/*
 	 * Method connected with a button onclick event handler
 	 */
 	public void buttonSevenPressed() {
@@ -248,7 +248,7 @@ public class primarypage implements Initializable {
 		drawOnCanvas(canvas.getGraphicsContext2D());
 	}
 
-	/***
+	/*
 	 * Method connected with a button onclick event handler
 	 */
 	public void buttonEightPressed() {
@@ -256,7 +256,7 @@ public class primarypage implements Initializable {
 		drawOnCanvas(canvas.getGraphicsContext2D());
 	}
 
-	/***
+	/*
 	 * Method connected with a button onclick event handler
 	 */
 	public void buttonNinePressed() {

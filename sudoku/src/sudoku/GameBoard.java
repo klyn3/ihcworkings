@@ -11,43 +11,56 @@ package sudoku;
  */
 public class GameBoard {
 
-    private int[][] solution;
+    private int[][] solution = new int[9][9];
     /* Array that will contain ONLY the numbers initially drawn on the board and that the player can't change */
-    private int[][] initial;
+    private int[][] initial = new int[9][9];
     /* Array that will contain player's numbers */
     private int[][] player;
-
+    
+    int dificuldade = 0;
     /**
      * *
      * @see Arrays
      */
-    public GameBoard() {
-        solution = new int[][]
-		{
-			{5,3,8,4,6,1,7,9,2},
-			{6,9,7,3,2,5,8,1,4},
-			{2,1,4,7,8,9,5,6,3},
-			{9,4,1,2,7,8,6,3,5},
-			{7,6,2,1,5,3,9,4,8},
-			{8,5,3,9,4,6,1,2,7},
-			{3,8,9,5,1,2,4,7,6},
-			{4,2,6,8,9,7,3,5,1},
-			{1,7,5,6,3,4,2,8,9}
-		};
+    public GameBoard(int dificuldade) {
+        int N = 9;
+        int K = 0;
+        if(dificuldade == 1) {
+            K = (int)(Math.random() * 15) + 10;
+        }
+        if(dificuldade == 2) {
+            K = (int)(Math.random() * 15) + 10;
+        }
+        
+        K = (int)(Math.random() * 15) + 10;
+        System.out.println("K");
+        
+        
+        
+        
+        
+        
+        Sudoku sudokuGame = new Sudoku(N, K);
+        sudokuGame.fillValues();
+        
+        int[][] valoresSolucao = sudokuGame.getSolution();
+        
+        sudokuGame.removeKDigits();
+        int[][] valoresIniciais = sudokuGame.printSudoku1();
+        
+        for(int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                this.solution[i][j] = valoresSolucao[i][j];
+            }
+        }
 
+        for(int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                this.initial[i][j] = valoresIniciais[i][j];
+                
+            }
+        }
         // 0's will be rendered as empty space and will be editable by player
-        initial = new int[][]{
-            {0, 0, 0, 4, 0, 0, 0, 9, 0},
-            {6, 0, 7, 0, 0, 0, 8, 0, 4},
-            {0, 1, 0, 7, 0, 9, 0, 0, 3},
-            {9, 0, 1, 0, 7, 0, 0, 3, 0},
-            {0, 0, 2, 0, 0, 0, 9, 0, 0},
-            {0, 5, 0, 0, 4, 0, 1, 0, 7},
-            {3, 0, 0, 5, 0, 2, 0, 7, 0},
-            {4, 0, 6, 0, 0, 0, 3, 0, 1},
-            {0, 7, 0, 0, 0, 4, 0, 0, 0}
-
-        };
 
         // player's array is initialized as a 9x9 full of zeroes
         player = new int[9][9];
