@@ -180,7 +180,7 @@ public class Sudoku
             // System.out.println(cellId);
             // extract coordinates i  and j
             int i = (cellId/N);
-            int j = cellId%16;
+            int j = cellId%9;
             if (j != 0)
                 j = j - 1;
  
@@ -192,34 +192,27 @@ public class Sudoku
             }
         }
     }
+      public int[][] printSudoku()
+    {
+        return this.matu;
+    }
  
     // Print sudoku
-    public void printSudoku()
-    {
-        for (int i = 0; i<N; i++)
-        {
-            for (int j = 0; j<N; j++)
-                System.out.print(solution[i][j] + " ");
-            System.out.println();
-        }
-        System.out.println();
+
+    public int[][] getSolution() {
+        return this.solution;
     }
- 
-      public void printSudoku1()
+
+      public int[][] printSudoku1()
     {
-        for (int i = 0; i<N; i++)
-        {
-            for (int j = 0; j<N; j++)
-                System.out.print(matu[i][j] + " ");
-            System.out.println();
-        }
-        System.out.println();
+        return this.matu;
     }
+      
  
     // Driver code
     public static void main(String[] args)
     {
-        int N = 16, K = 192;
+        int N = 9, K = 192;
         Sudoku sudoku = new Sudoku(N, K);
         sudoku.fillValues();
         sudoku.printSudoku();
