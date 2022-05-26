@@ -209,14 +209,4 @@ public class Sudoku
     }
       
  
-    // Driver code
-    public static void main(String[] args)
-    {
-        int N = 9, K = 192;
-        Sudoku sudoku = new Sudoku(N, K);
-        sudoku.fillValues();
-        sudoku.printSudoku();
-        sudoku.removeKDigits();
-        sudoku.printSudoku1();
-    }
 }
