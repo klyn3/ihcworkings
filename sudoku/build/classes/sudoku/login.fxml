@@ -11,7 +11,7 @@
 
 <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #EAF4D3;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <VBox maxWidth="400.0" prefHeight="314.0" prefWidth="400.0" spacing="30.0">
-        <TextField fx:id="errorField" alignment="CENTER_RIGHT" editable="false" style="-fx-background-color: #ffc1bd; -fx-border-width: 2; -fx-border-style: solid; -fx-border-color: #e60000; -fx-border-radius: 4; -fx-alignment: center-left;" text="ERROR" visible="false">
+        <TextField fx:id="errorField" alignment="CENTER_RIGHT" editable="false" style="-fx-background-color: #ffc1bd; -fx-border-width: 2; -fx-border-style: solid; -fx-border-color: #e60000; -fx-border-radius: 4; -fx-alignment: center-left;" text="Wrong Credentials" visible="false">
             <font>
                 <Font name="System Bold" size="12.0" />
             </font></TextField>

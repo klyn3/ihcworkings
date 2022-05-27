@@ -62,6 +62,45 @@ public class login implements Initializable {
         hiddenPasswordTextField.setVisible(true);
         passwordTextField.setVisible(false);
     }
+    
+    @FXML
+    private String getPassword() {
+        if(passwordTextField.isVisible()){
+            return passwordTextField.getText();
+        } else {
+            return hiddenPasswordTextField.getText();
+        }
+    }
+    
+    @FXML
+    void loginHandler(ActionEvent event) throws IOException, NoSuchPaddingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
+        String username = usernameTextField.getText();
+        String password = getPassword();
+        updateUserAndPass();
+        
+        String encryptedPass = loginInfo.get(username);
+        if (encryptor.encryptString(password).equals(encryptedPass)){
+            System.out.println("sucss login");
+            //mudar de scene
+        } else {
+            errorField.setVisible(true);
+        }
+        
+    }
+    
+    @FXML
+    private void updateUserAndPass() throws IOException {
+        Scanner scanner = new Scanner(file);
+        loginInfo.clear();
+        loginInfo = new HashMap<>();
+        while (scanner.hasNext()){
+            String[] userAndPass = scanner.nextLine().split(",");
+            loginInfo.put(userAndPass[0], userAndPass[1]);
+        }
+    }
+    
+    @FXML
+    private void writeToFile() 
         
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
