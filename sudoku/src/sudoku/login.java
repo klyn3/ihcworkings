@@ -42,6 +42,12 @@ public class login implements Initializable {
     private PasswordField hiddenPasswordTextField;
     @FXML
     private CheckBox showPassword;
+    
+    File file = new File("loginData.csv");
+    
+    //contem <username, password>
+    HashMap<String, String> loginInfo = new HashMap<>();
+    
         
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
