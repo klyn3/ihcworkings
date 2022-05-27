@@ -48,6 +48,20 @@ public class login implements Initializable {
     //contem <username, password>
     HashMap<String, String> loginInfo = new HashMap<>();
     
+    Encryptor encryptor = new Encryptor();
+    
+    @FXML
+    void changeVisibility(ActionEvent event) {
+        if(showPassword.isSelected()){
+            passwordTextField.setText(hiddenPasswordTextField.getText());
+            passwordTextField.setVisible(true);
+            hiddenPasswordTextField.setVisible(true);
+            return;
+        } 
+        hiddenPasswordTextField.setText(passwordTextField.getText());
+        hiddenPasswordTextField.setVisible(true);
+        passwordTextField.setVisible(false);
+    }
         
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {

@@ -19,10 +19,10 @@
         <StackPane prefHeight="0.0" prefWidth="240.0">
             <TextField fx:id="passwordTextField" promptText="password" visible="false" />
             <PasswordField fx:id="hiddenPasswordTextField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="400.0" promptText="password" />
-            <CheckBox fx:id="showPassword" mnemonicParsing="false" onAction="#changeVisibility" StackPane.alignment="CENTER_RIGHT">
-                <StackPane.margin>
-                    <Insets right="5.0" />
-                </StackPane.margin>
+            <CheckBox fx:id="showPassword" mnemonicParsing="false" onAction="#changeVisibility" text="View Password" StackPane.alignment="CENTER_RIGHT">
+            <StackPane.margin>
+               <Insets right="-82.0" />
+            </StackPane.margin>
             </CheckBox>
         </StackPane>
         <Button alignment="CENTER" contentDisplay="CENTER" onAction="#loginHandler" prefHeight="40.0" prefWidth="400.0" text="login" />
