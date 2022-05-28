@@ -53,11 +53,12 @@ public class login {
             passwordTextField.setText(hiddenPasswordTextField.getText());
             passwordTextField.setVisible(true);
             hiddenPasswordTextField.setVisible(true);
-            return;
-        } 
+            //return;
+        } else {
         hiddenPasswordTextField.setText(passwordTextField.getText());
         hiddenPasswordTextField.setVisible(true);
         passwordTextField.setVisible(false);
+        }
     }
     
     @FXML
