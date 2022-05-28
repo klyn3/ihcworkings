@@ -1,9 +1,6 @@
 package sudoku;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -30,7 +27,7 @@ import java.util.Scanner;
  *
  * @author claudior
  */
-public class login implements Initializable {
+public class login {
 
     @FXML
     public TextField usernameTextField;
@@ -88,7 +85,6 @@ public class login implements Initializable {
         
     }
     
-    @FXML
     private void updateUserAndPass() throws IOException {
         Scanner scanner = new Scanner(file);
         loginInfo.clear();
@@ -99,11 +95,19 @@ public class login implements Initializable {
         }
     }
     
-    @FXML
-    private void writeToFile() 
+    private void writeToFile() throws IOException, NoSuchPaddingException, InvalidKeyException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidAlgorithmParameterException {
+        String username = usernameTextField.getText();
+        String password = getPassword();
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file,true));
         
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-            
+        writer.write(username + "," + encryptor.encryptString(password) + "\n");
+        writer.close();
     }
+    
+    @FXML
+    void createAccount(ActionEvent event) throws IOException, NoSuchPaddingException, InvalidAlgorithmParameterException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
+        writeToFile();
+    }
+    
+        
 }

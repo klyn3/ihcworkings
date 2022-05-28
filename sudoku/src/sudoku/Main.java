@@ -15,10 +15,10 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent login = FXMLLoader.load(getClass().getResource("login.fxml"));
-        Scene scene = new Scene(login);
+        //Scene scene = new Scene(login);
         //scene.getStylesheets().add("/css/css.css");
         stage.setTitle("login");
-        stage.setScene(scene);
+        stage.setScene(new Scene(login));
         stage.show();
     }
     /**
