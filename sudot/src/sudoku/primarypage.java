@@ -256,11 +256,36 @@ public class primarypage implements Initializable {
 		drawOnCanvas(canvas.getGraphicsContext2D());
 	}
 
-	/*
-	 * Method connected with a button onclick event handler
-	 */
 	public void buttonNinePressed() {
 		gameboard.modifyPlayer(9, player_selected_row, player_selected_col);
 		drawOnCanvas(canvas.getGraphicsContext2D());
 	}
+        public void buttonAPressed() {
+		gameboard.modifyPlayer(10, player_selected_row, player_selected_col);
+		drawOnCanvas(canvas.getGraphicsContext2D());
+	}
+        public void buttonBPressed() {
+		gameboard.modifyPlayer(11, player_selected_row, player_selected_col);
+		drawOnCanvas(canvas.getGraphicsContext2D());
+	}public void buttonCPressed() {
+		gameboard.modifyPlayer(12, player_selected_row, player_selected_col);
+		drawOnCanvas(canvas.getGraphicsContext2D());
+	}public void buttonDPressed() {
+		gameboard.modifyPlayer(13, player_selected_row, player_selected_col);
+		drawOnCanvas(canvas.getGraphicsContext2D());
+	}
+        public void buttonEPressed() {
+		gameboard.modifyPlayer(14, player_selected_row, player_selected_col);
+		drawOnCanvas(canvas.getGraphicsContext2D());
+	}
+        public void buttonFPressed() {
+		gameboard.modifyPlayer(15, player_selected_row, player_selected_col);
+		drawOnCanvas(canvas.getGraphicsContext2D());
+	}
+        public void buttonZEROPressed() {
+		gameboard.modifyPlayer(0, player_selected_row, player_selected_col);
+		drawOnCanvas(canvas.getGraphicsContext2D());
+	}
+        
+        
 }
