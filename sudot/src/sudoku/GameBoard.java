@@ -196,7 +196,7 @@ public class GameBoard {
                 sum = sum + combined[row][col];
             }
             // if the sum isn't 45, then the column is invalid, invalidating the whole solution
-            if (sum != 136) {
+            if (sum != 136) {////passa a 120 quando mudar para 0
                 return false;
             }
         }
@@ -219,7 +219,7 @@ public class GameBoard {
                 }
                 // if the sum isn't 45, then the 3x3 cluster is invalid,
                 // invalidating the whole solution
-                if (sum != 136) {
+                if (sum != 136) {//passa a 120 quando mudar para 0
                     return false;
                 }
             }
