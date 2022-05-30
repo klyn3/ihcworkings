@@ -14,7 +14,7 @@ public class Main extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent login = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Parent login = FXMLLoader.load(getClass().getResource("Niveisscene.fxml"));
         //Scene scene = new Scene(login);
         //scene.getStylesheets().add("/css/css.css");
         stage.setTitle("login");

@@ -19,6 +19,12 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Scanner;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 
 
@@ -80,7 +86,20 @@ public class login {
         if (encryptor.encryptString(password).equals(encryptedPass)){
             System.out.println("sucss login");
             //mudar de scene
-        } else {
+            try{
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Niveisscene.fxml"));
+                Parent root = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.initModality(Modality.NONE);
+                stage.setTitle("Dificuldade");
+                stage.setScene(new Scene(root));
+                stage.show();
+            } 
+            catch (IOException e) {}
+                
+            
+        }
+        else {
             errorField.setVisible(true);
         }
         
