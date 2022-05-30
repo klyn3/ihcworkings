@@ -7,6 +7,6 @@
    <children>
       <Button fx:id="button_Facil" layoutX="225.0" layoutY="64.0" mnemonicParsing="false" onMouseClicked="#buttonFacilPressed" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: green;" text="Facil" AnchorPane.bottomAnchor="285.5" AnchorPane.topAnchor="64.0" />
       <Button fx:id="button_Dificil" layoutX="226.0" layoutY="289.0" mnemonicParsing="false" onMouseClicked="#buttonDificilPressed" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: red;" text="Dificil" AnchorPane.bottomAnchor="61.0" />
-      <Button fx:id="button_Medio1" layoutX="226.0" layoutY="175.0" mnemonicParsing="false" onMouseClicked="#buttonMedioPressed" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: yellow;" text="Medio" />
+      <Button fx:id="button_Medio" layoutX="226.0" layoutY="175.0" mnemonicParsing="false" onMouseClicked="#buttonMedioPressed" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: yellow;" text="Medio" />
    </children>
 </AnchorPane>

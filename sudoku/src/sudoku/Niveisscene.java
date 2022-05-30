@@ -32,22 +32,16 @@ public class Niveisscene implements Initializable {
 
     }
 
-    public class SceneController {
-
-        private Stage stage;
-        private Scene scene;
-        private Parent root;
-    }
-
-    public void buttonFacilPressed(ActionEvent event) throws Exception {
+    public void buttonFacilPressed() {
+        System.out.println("1");
     }
 
     public void buttonMedioPressed() {
-
+        System.out.println("cona");
     }
 
     public void buttonDificilPressed() {
-
+        System.out.println("3");
     }
 
 }

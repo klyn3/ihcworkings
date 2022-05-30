@@ -24,8 +24,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-
 
 
 /**
@@ -87,13 +85,17 @@ public class login {
             System.out.println("sucss login");
             //mudar de scene
             try{
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Niveisscene.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Niveiscene.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
                 Stage stage = new Stage();
                 stage.initModality(Modality.NONE);
                 stage.setTitle("Dificuldade");
                 stage.setScene(new Scene(root));
                 stage.show();
+                
+                Stage thisStage = (Stage) usernameTextField.getScene().getWindow();
+                thisStage.close();
+                thisStage = null; //libertar memória
             } 
             catch (IOException e) {}
                 
