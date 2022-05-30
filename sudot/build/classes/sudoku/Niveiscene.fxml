@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: rgb(192,192,192);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sudoku.Niveisscene">
+   <children>
+      <Button fx:id="button_Facil" layoutX="225.0" layoutY="64.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: green;" text="Facil" AnchorPane.bottomAnchor="285.5" AnchorPane.topAnchor="64.0" />
+      <Button fx:id="button_Dificil" layoutX="226.0" layoutY="289.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: red;" text="Dificil" AnchorPane.bottomAnchor="61.0" />
+      <Button fx:id="button_Medio1" layoutX="226.0" layoutY="175.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: yellow;" text="Medio" />
+   </children>
+</AnchorPane>
