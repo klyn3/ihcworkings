@@ -31,14 +31,9 @@ public class GameBoard {
         if(dificuldade == 2) {
             K = (int)(Math.random() * 15) + 10;
         }
-        
-        K = (int)(Math.random() * 15) + 10;
-        System.out.println("K");*/
-        
-        
-        
-        
-        
+        if(dificuldade == 3) {
+            K = (int)(Math.random() * 15) + 10;
+        }*/
         
         Sudoku sudokuGame = new Sudoku(N, K);
         sudokuGame.fillValues();
@@ -106,7 +101,7 @@ public class GameBoard {
         // this way we avoid intersections between the two
         if (initial[row][col] == 0) {
 
-            if (val >= 0 && val <= 16) // only values from 0 to 9 inclusive are permitted
+            if (val >= -1 && val < 16) // only values from 0 to 9 inclusive are permitted
             {
                 player[row][col] = val;
             } else // print out an error message

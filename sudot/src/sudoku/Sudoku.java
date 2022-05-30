@@ -185,10 +185,10 @@ public class Sudoku
                 j = j - 1;
  
             // System.out.println(i+" "+j);
-            if (matu[i][j] != -1)
+            if (matu[i][j] != 0)
             {
                 count--;
-                matu[i][j] = -1;
+                matu[i][j] = 0;
             }
         }
     }
