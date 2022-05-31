@@ -40,6 +40,7 @@ public class Niveisscene implements Initializable {
     }
 
     public void buttonFacilPressed(ActionEvent event) throws Exception {
+        
     }
 
     public void buttonMedioPressed() {

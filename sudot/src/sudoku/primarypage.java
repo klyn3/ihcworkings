@@ -1,6 +1,7 @@
 package sudoku;
 
 import java.net.URL;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -59,6 +60,8 @@ public class primarypage implements Initializable {
     // Player selected cell integers
     int player_selected_row;
     int player_selected_col;
+    Calendar calendario;
+    String digitos[];
 
     /*
 	 * On layout load, initialize the game board, call the drawOnCanvas method
@@ -364,6 +367,8 @@ public class primarypage implements Initializable {
         drawOnCanvas(canvas.getGraphicsContext2D());
     }
 
-}
+
 
 ///timer
+
+}
