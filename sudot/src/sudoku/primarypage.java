@@ -1,16 +1,22 @@
 package sudoku;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -219,6 +225,28 @@ public class primarypage implements Initializable {
         // when the gameboard returns true with its checkForSuccess
         // method, that means it has found no mistakes
         if (gameboard.checkForSuccessGeneral() == true) {
+            // abrir scene sucesso
+            try{
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sucesso.fxml"));
+                Parent root = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.initModality(Modality.NONE);
+                stage.setTitle("Sucesso");
+                stage.setScene(new Scene(root));
+                stage.show();
+                
+                Stage thisStage = (Stage) canvas.getScene().getWindow();
+                thisStage.close();
+                thisStage = null; //libertar memória
+            } 
+            catch (IOException e) {}
+            
+            
+            
+            
+            
+            
+            
 
             // clear the canvas
             context.clearRect(0, 0, 800, 800);
