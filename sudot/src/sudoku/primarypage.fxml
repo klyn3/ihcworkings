@@ -49,12 +49,12 @@
             <Font size="48.0" />
          </font>
       </Label>
-      <Button layoutX="984.0" layoutY="711.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="173.0" text="PAUSE">
+      <Button fx:id="pausa" layoutX="984.0" layoutY="711.0" mnemonicParsing="false" onMouseClicked="#buttonPausaPressed" prefHeight="70.0" prefWidth="173.0" text="PAUSE">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="1212.0" layoutY="712.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="173.0" text="EXIT_MENU">
+      <Button fx:id="Menu" layoutX="1212.0" layoutY="712.0" mnemonicParsing="false" onMouseClicked="#buttonMenuPressed" prefHeight="69.0" prefWidth="173.0" text="EXIT_MENU">
          <font>
             <Font size="14.0" />
          </font>

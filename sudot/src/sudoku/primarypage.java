@@ -59,6 +59,10 @@ public class primarypage implements Initializable {
     Button button_F;
     @FXML
     Canvas canvas;
+    @FXML
+    Button pausa;
+    @FXML
+    Button Menu;
 
     // Make a new GameBoard declaration
     GameBoard gameboard;
@@ -374,6 +378,40 @@ public class primarypage implements Initializable {
     public void buttonZEROPressed() {
         gameboard.modifyPlayer(16, player_selected_row, player_selected_col);
         drawOnCanvas(canvas.getGraphicsContext2D());
+    }
+    
+    public void buttonMenuPressed() {
+        try{
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Niveiscene.fxml"));
+                Parent root = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.initModality(Modality.NONE);
+                stage.setTitle("Dificuldade");
+                stage.setScene(new Scene(root));
+                stage.show();
+                
+                Stage thisStage = (Stage) canvas.getScene().getWindow();
+                thisStage.close();
+                thisStage = null; //libertar memória
+            } 
+            catch (IOException e) {}
+    }
+    
+    public void buttonPausaPressed() {
+        try{
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Pausa.fxml"));
+                Parent root = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.initModality(Modality.NONE);
+                stage.setTitle("Pausa");
+                stage.setScene(new Scene(root));
+                stage.show();
+                
+                Stage thisStage = (Stage) canvas.getScene().getWindow();
+                thisStage.close();
+                thisStage = null; //libertar memória
+            } 
+            catch (IOException e) {}
     }
 
 }
