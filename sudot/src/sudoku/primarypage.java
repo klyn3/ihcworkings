@@ -18,6 +18,8 @@ import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+
+
 /**
  * FXML Controller class
  *
@@ -63,23 +65,26 @@ public class primarypage implements Initializable {
     Button pausa;
     @FXML
     Button Menu;
-
+    
     // Make a new GameBoard declaration
     GameBoard gameboard;
     // Player selected cell integers
     int player_selected_row;
     int player_selected_col;
-
+    
+    int dif = 3;
     /*
 	 * On layout load, initialize the game board, call the drawOnCanvas method
 	 * and instantiate the selected cell.
         * @param arg0
         * @param arg1
      */
+   
+    
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         //Create an instance of our gameboard
-        gameboard = new GameBoard(3);
+        gameboard = new GameBoard(dif);
         //Get graphics context from canvas
         GraphicsContext context = canvas.getGraphicsContext2D();
         //Call drawOnCanvas method, with the context we have gotten from the canvas
