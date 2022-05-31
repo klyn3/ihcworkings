@@ -44,12 +44,12 @@
          </children>
       </GridPane>
       <Canvas fx:id="canvas" height="900.0" layoutX="31.0" onMouseClicked="#canvasMouseClicked" width="900.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="965.0" layoutY="67.0" prefHeight="152.0" prefWidth="433.0" text="00:00:00:00">
+      <Label fx:id="timer" alignment="CENTER" contentDisplay="CENTER" layoutX="965.0" layoutY="67.0" prefHeight="152.0" prefWidth="433.0">
          <font>
-            <Font size="48.0" />
+            <Font size="64.0" />
          </font>
       </Label>
-      <Button layoutX="984.0" layoutY="711.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="173.0" text="PAUSE">
+      <Button layoutX="984.0" layoutY="711.0" mnemonicParsing="false" onMouseClicked="#buttonpausePressed" prefHeight="70.0" prefWidth="173.0" text="PAUSE">
          <font>
             <Font size="14.0" />
          </font>

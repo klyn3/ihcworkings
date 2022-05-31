@@ -1,17 +1,23 @@
 package sudoku;
 
 import java.net.URL;
-import java.util.Calendar;
 import java.util.ResourceBundle;
+import javafx.animation.Animation;
+import static javafx.animation.Animation.Status.PAUSED;
+import static javafx.animation.Animation.Status.RUNNING;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -54,14 +60,26 @@ public class primarypage implements Initializable {
     Button button_F;
     @FXML
     Canvas canvas;
+    @FXML
+    Button menu_return;
+    @FXML
+    Button pause;
+    @FXML
+    Label timer;
 
+    timer time = new timer("00:00:00");
     // Make a new GameBoard declaration
     GameBoard gameboard;
     // Player selected cell integers
     int player_selected_row;
     int player_selected_col;
-    Calendar calendario;
-    String digitos[];
+    int dificuldade = 1;
+    Animation.Status currentState =RUNNING;
+
+    Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
+        time.oneSecondPassed();
+        timer.setText(time.getCurrentTime());
+    }));
 
     /*
 	 * On layout load, initialize the game board, call the drawOnCanvas method
@@ -72,7 +90,7 @@ public class primarypage implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         //Create an instance of our gameboard
-        gameboard = new GameBoard(3);
+        gameboard = new GameBoard(dificuldade);
         //Get graphics context from canvas
         GraphicsContext context = canvas.getGraphicsContext2D();
         //Call drawOnCanvas method, with the context we have gotten from the canvas
@@ -80,6 +98,11 @@ public class primarypage implements Initializable {
         // default player celected cell integers to 0;
         player_selected_row = 0;
         player_selected_col = 0;
+        timer.setText(time.getCurrentTime());
+
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+
     }
 
     /*
@@ -164,7 +187,7 @@ public class primarypage implements Initializable {
                         default:
                             context.fillText(initial[row][col] + "", position_x, position_y);
                             break;
-                            
+
                     }
                 }
             }
@@ -212,9 +235,9 @@ public class primarypage implements Initializable {
                         default:
                             context.fillText(player[row][col] + "", position_x, position_y);
                             break;
-                            
+
                     }
-                   
+
                 }
             }
         }
@@ -367,8 +390,17 @@ public class primarypage implements Initializable {
         drawOnCanvas(canvas.getGraphicsContext2D());
     }
 
+    public void buttonpausePressed(GraphicsContext context1) {
 
+        if (currentState == RUNNING) {
+            timeline.stop();
+            currentState = PAUSED;
+            context1.fillText("SUCCESS!", 1440, 900);
+        } else if (currentState == PAUSED) {
+            timeline.playFromStart();
+            currentState = RUNNING;
+        }
+    }
 
 ///timer
-
 }
