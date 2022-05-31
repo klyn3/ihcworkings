@@ -240,22 +240,6 @@ public class primarypage implements Initializable {
                 thisStage = null; //libertar memória
             } 
             catch (IOException e) {}
-            
-            
-            
-            
-            
-            
-            
-
-            // clear the canvas
-            context.clearRect(0, 0, 800, 800);
-            // set the fill color to green
-            context.setFill(Color.GREEN);
-            // set the font to 36pt
-            context.setFont(new Font(36));
-            // display SUCCESS text on the screen
-            context.fillText("SUCCESS!", 1440, 900);
         }
 
     }
