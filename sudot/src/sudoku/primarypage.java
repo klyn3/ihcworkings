@@ -1,23 +1,24 @@
 package sudoku;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.animation.Animation;
-import static javafx.animation.Animation.Status.PAUSED;
-import static javafx.animation.Animation.Status.RUNNING;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.util.Duration;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+
 
 /**
  * FXML Controller class
@@ -61,36 +62,29 @@ public class primarypage implements Initializable {
     @FXML
     Canvas canvas;
     @FXML
-    Button menu_return;
+    Button pausa;
     @FXML
-    Button pause;
-    @FXML
-    Label timer;
-
-    timer time = new timer("00:00:00");
+    Button Menu;
+    
     // Make a new GameBoard declaration
     GameBoard gameboard;
     // Player selected cell integers
     int player_selected_row;
     int player_selected_col;
-    int dificuldade = 1;
-    Animation.Status currentState =RUNNING;
-
-    Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
-        time.oneSecondPassed();
-        timer.setText(time.getCurrentTime());
-    }));
-
+    
+    int dif = 3;
     /*
 	 * On layout load, initialize the game board, call the drawOnCanvas method
 	 * and instantiate the selected cell.
         * @param arg0
         * @param arg1
      */
+   
+    
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         //Create an instance of our gameboard
-        gameboard = new GameBoard(dificuldade);
+        gameboard = new GameBoard(dif);
         //Get graphics context from canvas
         GraphicsContext context = canvas.getGraphicsContext2D();
         //Call drawOnCanvas method, with the context we have gotten from the canvas
@@ -98,11 +92,6 @@ public class primarypage implements Initializable {
         // default player celected cell integers to 0;
         player_selected_row = 0;
         player_selected_col = 0;
-        timer.setText(time.getCurrentTime());
-
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.play();
-
     }
 
     /*
@@ -187,7 +176,7 @@ public class primarypage implements Initializable {
                         default:
                             context.fillText(initial[row][col] + "", position_x, position_y);
                             break;
-
+                            
                     }
                 }
             }
@@ -235,9 +224,9 @@ public class primarypage implements Initializable {
                         default:
                             context.fillText(player[row][col] + "", position_x, position_y);
                             break;
-
+                            
                     }
-
+                   
                 }
             }
         }
@@ -245,15 +234,21 @@ public class primarypage implements Initializable {
         // when the gameboard returns true with its checkForSuccess
         // method, that means it has found no mistakes
         if (gameboard.checkForSuccessGeneral() == true) {
-
-            // clear the canvas
-            context.clearRect(0, 0, 800, 800);
-            // set the fill color to green
-            context.setFill(Color.GREEN);
-            // set the font to 36pt
-            context.setFont(new Font(36));
-            // display SUCCESS text on the screen
-            context.fillText("SUCCESS!", 1440, 900);
+            // abrir scene sucesso
+            try{
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sucesso.fxml"));
+                Parent root = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.initModality(Modality.NONE);
+                stage.setTitle("Sucesso");
+                stage.setScene(new Scene(root));
+                stage.show();
+                
+                Stage thisStage = (Stage) canvas.getScene().getWindow();
+                thisStage.close();
+                thisStage = null; //libertar memória
+            } 
+            catch (IOException e) {}
         }
 
     }
@@ -389,18 +384,41 @@ public class primarypage implements Initializable {
         gameboard.modifyPlayer(16, player_selected_row, player_selected_col);
         drawOnCanvas(canvas.getGraphicsContext2D());
     }
-
-    public void buttonpausePressed(GraphicsContext context1) {
-
-        if (currentState == RUNNING) {
-            timeline.stop();
-            currentState = PAUSED;
-            context1.fillText("SUCCESS!", 1440, 900);
-        } else if (currentState == PAUSED) {
-            timeline.playFromStart();
-            currentState = RUNNING;
-        }
+    
+    public void buttonMenuPressed() {
+        try{
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Niveiscene.fxml"));
+                Parent root = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.initModality(Modality.NONE);
+                stage.setTitle("Dificuldade");
+                stage.setScene(new Scene(root));
+                stage.show();
+                
+                Stage thisStage = (Stage) canvas.getScene().getWindow();
+                thisStage.close();
+                thisStage = null; //libertar memória
+            } 
+            catch (IOException e) {}
+    }
+    
+    public void buttonPausaPressed() {
+        try{
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Pausa.fxml"));
+                Parent root = (Parent) fxmlLoader.load();
+                Stage stage = new Stage();
+                stage.initModality(Modality.NONE);
+                stage.setTitle("Pausa");
+                stage.setScene(new Scene(root));
+                stage.show();
+                
+                Stage thisStage = (Stage) canvas.getScene().getWindow();
+                thisStage.close();
+                thisStage = null; //libertar memória
+            } 
+            catch (IOException e) {}
     }
 
-///timer
 }
+
+///timer
