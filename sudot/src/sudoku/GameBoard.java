@@ -44,7 +44,7 @@ public class GameBoard {
             K = (int)(Math.random() * range) + min;
         }
         
-        Sudoku sudokuGame = new Sudoku(N, K);
+        Sudoku sudokuGame = new Sudoku(N, 1);
         sudokuGame.fillValues();
         
         int[][] valoresSolucao = sudokuGame.getSolution();

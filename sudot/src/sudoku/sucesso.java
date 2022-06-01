@@ -51,5 +51,8 @@ public class sucesso implements Initializable {
             } 
             catch (IOException e) {}
     }
+    public void labelreset(String time){
+        Timer.setText(time);
+    }
     
 }

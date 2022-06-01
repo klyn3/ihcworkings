@@ -260,7 +260,8 @@ public class primarypage implements Initializable {
                 stage.setTitle("Sucesso");
                 stage.setScene(new Scene(root));
                 stage.show();
-                
+                sucesso sucesso=fxmlLoader.getController();
+                sucesso.labelreset(timer.getText());
 
                 Stage thisStage = (Stage) canvas.getScene().getWindow();
                 thisStage.close();
