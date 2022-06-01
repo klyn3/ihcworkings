@@ -17,8 +17,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-
+import javafx.animation.Animation;
+import static javafx.animation.Animation.Status.PAUSED;
+import static javafx.animation.Animation.Status.RUNNING;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
+import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
@@ -65,22 +70,29 @@ public class primarypage implements Initializable {
     Button pausa;
     @FXML
     Button Menu;
-    
+    @FXML
+    Label timer;
+
+    timer time = new timer("00:00:00");
     // Make a new GameBoard declaration
     GameBoard gameboard;
     // Player selected cell integers
     int player_selected_row;
     int player_selected_col;
-    
+
     int dif = 3;
     /*
 	 * On layout load, initialize the game board, call the drawOnCanvas method
 	 * and instantiate the selected cell.
         * @param arg0
         * @param arg1
-     */
-   
-    
+     */    Animation.Status currentState = RUNNING;
+
+    Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
+        time.oneSecondPassed();
+        timer.setText(time.getCurrentTime());
+    }));
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         //Create an instance of our gameboard
@@ -92,6 +104,10 @@ public class primarypage implements Initializable {
         // default player celected cell integers to 0;
         player_selected_row = 0;
         player_selected_col = 0;
+        timer.setText(time.getCurrentTime());
+
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
     }
 
     /*
@@ -176,7 +192,7 @@ public class primarypage implements Initializable {
                         default:
                             context.fillText(initial[row][col] + "", position_x, position_y);
                             break;
-                            
+
                     }
                 }
             }
@@ -224,9 +240,9 @@ public class primarypage implements Initializable {
                         default:
                             context.fillText(player[row][col] + "", position_x, position_y);
                             break;
-                            
+
                     }
-                   
+
                 }
             }
         }
@@ -235,7 +251,8 @@ public class primarypage implements Initializable {
         // method, that means it has found no mistakes
         if (gameboard.checkForSuccessGeneral() == true) {
             // abrir scene sucesso
-            try{
+            try {
+                timeline.stop();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sucesso.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
                 Stage stage = new Stage();
@@ -244,11 +261,12 @@ public class primarypage implements Initializable {
                 stage.setScene(new Scene(root));
                 stage.show();
                 
+
                 Stage thisStage = (Stage) canvas.getScene().getWindow();
                 thisStage.close();
                 thisStage = null; //libertar memória
-            } 
-            catch (IOException e) {}
+            } catch (IOException e) {
+            }
         }
 
     }
@@ -384,41 +402,35 @@ public class primarypage implements Initializable {
         gameboard.modifyPlayer(16, player_selected_row, player_selected_col);
         drawOnCanvas(canvas.getGraphicsContext2D());
     }
-    
+
     public void buttonMenuPressed() {
-        try{
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Niveiscene.fxml"));
-                Parent root = (Parent) fxmlLoader.load();
-                Stage stage = new Stage();
-                stage.initModality(Modality.NONE);
-                stage.setTitle("Dificuldade");
-                stage.setScene(new Scene(root));
-                stage.show();
-                
-                Stage thisStage = (Stage) canvas.getScene().getWindow();
-                thisStage.close();
-                thisStage = null; //libertar memória
-            } 
-            catch (IOException e) {}
-    }
-    
-    public void buttonPausaPressed() {
-        try{
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Pausa.fxml"));
-                Parent root = (Parent) fxmlLoader.load();
-                Stage stage = new Stage();
-                stage.initModality(Modality.NONE);
-                stage.setTitle("Pausa");
-                stage.setScene(new Scene(root));
-                stage.show();
-                
-                Stage thisStage = (Stage) canvas.getScene().getWindow();
-                thisStage.close();
-                thisStage = null; //libertar memória
-            } 
-            catch (IOException e) {}
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Niveiscene.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.NONE);
+            stage.setTitle("Dificuldade");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            Stage thisStage = (Stage) canvas.getScene().getWindow();
+            thisStage.close();
+            thisStage = null; //libertar memória
+        } catch (IOException e) {
+        }
     }
 
+    public void buttonPausaPressed() {
+        if (currentState == RUNNING) {
+            timeline.stop();
+            currentState = PAUSED;
+        } else if (currentState == PAUSED) {
+            timeline.playFromStart();
+            currentState = RUNNING;
+        }
+    }
 }
+
+
 
 ///timer
