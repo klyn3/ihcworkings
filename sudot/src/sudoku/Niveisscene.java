@@ -69,7 +69,7 @@ public class Niveisscene implements Initializable {
     }
     
     public void buttonDificilPressed(ActionEvent event) throws IOException {
-        dif=1;
+        dif=3;
         primarypage primarypage=new primarypage(dif);
         FXMLLoader loader =new FXMLLoader(getClass().getResource("primarypage.fxml"));
         loader.setController(primarypage);
