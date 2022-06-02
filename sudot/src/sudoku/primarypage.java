@@ -24,6 +24,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -72,6 +73,8 @@ public class primarypage implements Initializable {
     Button Menu;
     @FXML
     Label timer;
+    @FXML
+    Pane whitePane;
 
     timer time = new timer("00:00:00");
     // Make a new GameBoard declaration
@@ -431,6 +434,12 @@ public class primarypage implements Initializable {
         } else if (currentState == PAUSED) {
             timeline.playFromStart();
             currentState = RUNNING;
+        }
+        
+        if (whitePane.isVisible()){
+            whitePane.setVisible(false);
+        } else {
+            whitePane.setVisible(true);
         }
     }
 }
