@@ -80,7 +80,7 @@ public class primarypage implements Initializable {
     int player_selected_row;
     int player_selected_col;
 
-    int dif = 3;
+    int dif = 0;
     /*
 	 * On layout load, initialize the game board, call the drawOnCanvas method
 	 * and instantiate the selected cell.
@@ -92,6 +92,17 @@ public class primarypage implements Initializable {
         time.oneSecondPassed();
         timer.setText(time.getCurrentTime());
     }));
+    
+    public int receiveDif(int k) {
+        if (k == 1){
+            dif = 1;
+        } else if (k == 2){
+            dif = 2;
+        } else if (k == 3){
+            dif = 3;
+        }
+        return dif;
+    }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {

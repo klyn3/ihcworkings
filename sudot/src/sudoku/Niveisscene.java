@@ -42,13 +42,6 @@ public class Niveisscene implements Initializable {
     }
 
     public void buttonFacilPressed(ActionEvent event) throws Exception {
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("primarypage.fxml"));
-//        loader.setController(new primarypage(3));
-//        Parent root = loader.load();;
-//        Stage stage = new Stage();
-//        stage.setTitle("Inicio");
-//        stage.show();
-
         try{
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("primarypage.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
@@ -57,6 +50,9 @@ public class Niveisscene implements Initializable {
                 stage.setTitle("sudoku");
                 stage.setScene(new Scene(root));
                 stage.show();
+                
+                primarypage primarypage = fxmlLoader.getController();
+                primarypage.receiveDif(1);
                 
                 Stage thisStage = (Stage) label1.getScene().getWindow();
                 thisStage.close();
@@ -66,13 +62,6 @@ public class Niveisscene implements Initializable {
     }
 
     public void buttonMedioPressed(ActionEvent event) throws IOException{
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("primarypage.fxml"));
-//        loader.setController(new primarypage(3));
-//        Parent root = loader.load();;
-//        Stage stage = new Stage();
-//        stage.setTitle("Inicio");
-//        stage.show();
-
         try{
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("primarypage.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
@@ -82,6 +71,9 @@ public class Niveisscene implements Initializable {
                 stage.setScene(new Scene(root));
                 stage.show();
                 
+                primarypage primarypage = fxmlLoader.getController();
+                primarypage.receiveDif(2);
+                
                 Stage thisStage = (Stage) label1.getScene().getWindow();
                 thisStage.close();
                 thisStage = null; //libertar memória
@@ -90,12 +82,6 @@ public class Niveisscene implements Initializable {
     }
     
     public void buttonDificilPressed(ActionEvent event) throws IOException {
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("primarypage.fxml"));
-//        loader.setController(new primarypage(3));
-//        Parent root = loader.load();;
-//        Stage stage = new Stage();
-//        stage.setTitle("Inicio");
-//        stage.show();
         try{
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("primarypage.fxml"));
                 Parent root = (Parent) fxmlLoader.load();
@@ -104,6 +90,9 @@ public class Niveisscene implements Initializable {
                 stage.setTitle("sudoku");
                 stage.setScene(new Scene(root));
                 stage.show();
+                
+                primarypage primarypage = fxmlLoader.getController();
+                primarypage.receiveDif(3);
                 
                 Stage thisStage = (Stage) label1.getScene().getWindow();
                 thisStage.close();
