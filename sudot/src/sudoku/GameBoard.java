@@ -17,34 +17,35 @@ public class GameBoard {
     /* Array that will contain player's numbers */
     private int[][] player;
     
-    int dificuldade = 1;
+    int dificuldade;
     int K;
     /**
      * *
+     * @param dificuldade
      * @see Arrays
      */
     public GameBoard(int dificuldade) {
         int N = 16;  
-        if(dificuldade == 1) {
+        if(dificuldade==1){
             int max = 64;
             int min = 32;
             int range = max - min + 1;
             K = (int)(Math.random() * range) + min;
         }
-        if(dificuldade == 2) {
+        if(dificuldade==2){
             int max = 96;
             int min = 64;
             int range = max - min + 1;
             K = (int)(Math.random() * range) + min;
         }
-        if(dificuldade == 3) {
+        if(dificuldade==3){
             int max = 128;
             int min = 96;
             int range = max - min + 1;
             K = (int)(Math.random() * range) + min;
         }
         
-        Sudoku sudokuGame = new Sudoku(N, 1);
+        Sudoku sudokuGame = new Sudoku(N, K);
         sudokuGame.fillValues();
         
         int[][] valoresSolucao = sudokuGame.getSolution();

@@ -34,6 +34,7 @@ public class Niveisscene implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    int dif;
     
 
     @Override
@@ -42,74 +43,41 @@ public class Niveisscene implements Initializable {
     }
 
     public void buttonFacilPressed(ActionEvent event) throws Exception {
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("primarypage.fxml"));
-//        loader.setController(new primarypage(3));
-//        Parent root = loader.load();;
-//        Stage stage = new Stage();
-//        stage.setTitle("Inicio");
-//        stage.show();
-
-        try{
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("primarypage.fxml"));
-                Parent root = (Parent) fxmlLoader.load();
-                Stage stage = new Stage();
-                stage.initModality(Modality.NONE);
-                stage.setTitle("sudoku");
-                stage.setScene(new Scene(root));
-                stage.show();
-                
-                Stage thisStage = (Stage) label1.getScene().getWindow();
-                thisStage.close();
-                thisStage = null; //libertar memória
-            } 
-            catch (IOException e) {}
+        dif=1;
+        primarypage primarypage=new primarypage(dif);
+        FXMLLoader loader =new FXMLLoader(getClass().getResource("primarypage.fxml"));
+        loader.setController(primarypage);
+        Parent root=loader.load();
+        
+        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void buttonMedioPressed(ActionEvent event) throws IOException{
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("primarypage.fxml"));
-//        loader.setController(new primarypage(3));
-//        Parent root = loader.load();;
-//        Stage stage = new Stage();
-//        stage.setTitle("Inicio");
-//        stage.show();
-
-        try{
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("primarypage.fxml"));
-                Parent root = (Parent) fxmlLoader.load();
-                Stage stage = new Stage();
-                stage.initModality(Modality.NONE);
-                stage.setTitle("sudoku");
-                stage.setScene(new Scene(root));
-                stage.show();
-                
-                Stage thisStage = (Stage) label1.getScene().getWindow();
-                thisStage.close();
-                thisStage = null; //libertar memória
-            } 
-            catch (IOException e) {}
+        dif=2;
+        primarypage primarypage=new primarypage(dif);
+        FXMLLoader loader =new FXMLLoader(getClass().getResource("primarypage.fxml"));
+        loader.setController(primarypage);
+        Parent root=loader.load();
+        
+        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     
     public void buttonDificilPressed(ActionEvent event) throws IOException {
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("primarypage.fxml"));
-//        loader.setController(new primarypage(3));
-//        Parent root = loader.load();;
-//        Stage stage = new Stage();
-//        stage.setTitle("Inicio");
-//        stage.show();
-        try{
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("primarypage.fxml"));
-                Parent root = (Parent) fxmlLoader.load();
-                Stage stage = new Stage();
-                stage.initModality(Modality.NONE);
-                stage.setTitle("sudoku");
-                stage.setScene(new Scene(root));
-                stage.show();
-                
-                Stage thisStage = (Stage) label1.getScene().getWindow();
-                thisStage.close();
-                thisStage = null; //libertar memória
-            } 
-            catch (IOException e) {}
+        dif=1;
+        primarypage primarypage=new primarypage(dif);
+        FXMLLoader loader =new FXMLLoader(getClass().getResource("primarypage.fxml"));
+        loader.setController(primarypage);
+        Parent root=loader.load();
+        
+        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene=new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
-
 }
