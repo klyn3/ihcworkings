@@ -29,12 +29,6 @@ import javafx.util.Duration;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
-
-/**
- * FXML Controller class
- *
- * @author claud
- */
 public class primarypage implements Initializable {
 
     @FXML
@@ -77,7 +71,7 @@ public class primarypage implements Initializable {
     Button Menu;
     @FXML
     Label timer;
-     @FXML
+    @FXML
     Pane whitePane;
 
     timer time = new timer("00:00:00");
@@ -89,10 +83,8 @@ public class primarypage implements Initializable {
     String user;
     
     File file = new File("Tempos.csv");
-    /*
-        * @param arg0
-        * @param arg1
-     */    Animation.Status currentState = RUNNING;
+    
+    Animation.Status currentState = RUNNING;
 
     Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
         time.oneSecondPassed();
@@ -101,6 +93,11 @@ public class primarypage implements Initializable {
     public primarypage(int k){
         this.dif=k;
     }
+	
+   /*
+    * @param arg0
+    * @param arg1
+    */ 
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
