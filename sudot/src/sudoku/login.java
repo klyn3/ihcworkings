@@ -93,6 +93,9 @@ public class login {
                 stage.setScene(new Scene(root));
                 stage.show();
                 
+                Niveisscene niveis = fxmlLoader.getController();
+                niveis.receiveuser(username);
+                
                 Stage thisStage = (Stage) usernameTextField.getScene().getWindow();
                 thisStage.close();
                 thisStage = null; //libertar memória

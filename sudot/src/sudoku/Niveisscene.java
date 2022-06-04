@@ -35,11 +35,16 @@ public class Niveisscene implements Initializable {
     private Scene scene;
     private Parent root;
     int dif;
+    String user;
     
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
+    }
+    
+    public void receiveuser(String user){
+        this.user = user;
     }
 
     public void buttonFacilPressed(ActionEvent event) throws Exception {
@@ -47,7 +52,9 @@ public class Niveisscene implements Initializable {
         primarypage primarypage=new primarypage(dif);
         FXMLLoader loader =new FXMLLoader(getClass().getResource("primarypage.fxml"));
         loader.setController(primarypage);
-        Parent root=loader.load();
+        root=loader.load();
+        
+        primarypage.receiveuser(user);
         
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         scene=new Scene(root);
@@ -60,7 +67,9 @@ public class Niveisscene implements Initializable {
         primarypage primarypage=new primarypage(dif);
         FXMLLoader loader =new FXMLLoader(getClass().getResource("primarypage.fxml"));
         loader.setController(primarypage);
-        Parent root=loader.load();
+        root=loader.load();
+        
+        primarypage.receiveuser(user);
         
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         scene=new Scene(root);
@@ -73,7 +82,9 @@ public class Niveisscene implements Initializable {
         primarypage primarypage=new primarypage(dif);
         FXMLLoader loader =new FXMLLoader(getClass().getResource("primarypage.fxml"));
         loader.setController(primarypage);
-        Parent root=loader.load();
+        root=loader.load();
+        
+        primarypage.receiveuser(user);
         
         stage=(Stage)((Node)event.getSource()).getScene().getWindow();
         scene=new Scene(root);
