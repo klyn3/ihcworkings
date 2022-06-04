@@ -25,12 +25,6 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-
-/**
- * FXML Controller class
- *
- * @author claud
- */
 public class login {
 
     @FXML
@@ -44,6 +38,7 @@ public class login {
     @FXML
     private CheckBox showPassword;
     
+    //.csv (ficheiro que guarda informação guardada por virgulas
     File file = new File("loginData.csv");
     
     HashMap<String, String> loginInfo = new HashMap<>();
