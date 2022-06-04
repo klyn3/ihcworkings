@@ -14,7 +14,7 @@ public class Encryptor {
     
     public String encryptString(String input) throws NoSuchAlgorithmException {
         
-        //MessageDigest works with MD2, MD5, SHA-1, SHA-224, SHA-256, SHA-384 e SHA-512.
+        
         MessageDigest md = MessageDigest.getInstance("MD5");
         byte[] messageDigest = md.digest(input.getBytes());
         BigInteger bigInt = new BigInteger(1, messageDigest);
@@ -25,7 +25,7 @@ public class Encryptor {
     public static void main(String[] args) throws NoSuchAlgorithmException {
         Encryptor encryptor = new Encryptor();
         
-        //fingerprint
+        
         String password = "monkey123";
         String hashedPass = "cc25c0f861a83f5efadc6e1ba9d1269e";
         

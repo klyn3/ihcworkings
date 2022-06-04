@@ -29,7 +29,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author claudior
+ * @author claud
  */
 public class login {
 
@@ -46,7 +46,6 @@ public class login {
     
     File file = new File("loginData.csv");
     
-    //contem <username, password>
     HashMap<String, String> loginInfo = new HashMap<>();
     
     Encryptor encryptor = new Encryptor();
@@ -98,7 +97,7 @@ public class login {
                 
                 Stage thisStage = (Stage) usernameTextField.getScene().getWindow();
                 thisStage.close();
-                thisStage = null; //libertar memória
+                thisStage = null;
             } 
             catch (IOException e) {}
                 
