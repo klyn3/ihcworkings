@@ -14,11 +14,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author claudior
- */
 public class Niveisscene implements Initializable {
 
     @FXML
@@ -46,6 +41,7 @@ public class Niveisscene implements Initializable {
         this.user = user;
     }
 
+    //passagem de scenes com dificuldade
     public void buttonFacilPressed(ActionEvent event) throws Exception {
         dif=1;
         primarypage primarypage=new primarypage(dif);
