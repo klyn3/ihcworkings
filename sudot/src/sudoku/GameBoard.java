@@ -5,10 +5,6 @@
  */
 package sudoku;
 
-/**
- *
- * @author claud
- */
 public class GameBoard {
 
     private int[][] solution = new int[16][16];
@@ -67,36 +63,28 @@ public class GameBoard {
         player = new int[16][16];
     }
 
-    /**
-     * *
-     *
+    /*
      * @return the solution array
      */
     public int[][] getSolution() {
         return solution;
     }
 
-    /**
-     * *
-     *
+    /*
      * @return the initial filled-in numbers array
      */
     public int[][] getInitial() {
         return initial;
     }
 
-    /**
-     * *
-     *
+    /*
      * @return the player array
      */
     public int[][] getPlayer() {
         return player;
     }
 
-    /**
-     * *
-     *
+    /*
      * @param val the integer to insert in the player array
      * @param row location in array x
      * @param col location in array y
@@ -115,9 +103,7 @@ public class GameBoard {
 
     }
 
-    /**
-     * *
-     *
+    /*
      * @return true if player solution matches original solution, false if not
      */
     public boolean checkForSuccess() {
@@ -137,9 +123,7 @@ public class GameBoard {
         return true;
     }
 
-    /**
-     * *
-     *
+    /*
      * @return true if player solution is a correct one according to sudoku
      * rules
      */
