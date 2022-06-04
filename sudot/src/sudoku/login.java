@@ -56,11 +56,11 @@ public class login {
         if(showPassword.isSelected()){
             passwordTextField.setText(hiddenPasswordTextField.getText());
             passwordTextField.setVisible(true);
-            hiddenPasswordTextField.setVisible(true);
+            hiddenPasswordTextField.setVisible(false);
             //return;
         } else {
         hiddenPasswordTextField.setText(passwordTextField.getText());
-        hiddenPasswordTextField.setVisible(false);
+        hiddenPasswordTextField.setVisible(true);
         passwordTextField.setVisible(false);
         }
     }
