@@ -60,7 +60,7 @@ public class login {
             //return;
         } else {
         hiddenPasswordTextField.setText(passwordTextField.getText());
-        hiddenPasswordTextField.setVisible(true);
+        hiddenPasswordTextField.setVisible(false);
         passwordTextField.setVisible(false);
         }
     }
