@@ -13,8 +13,6 @@ import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-
-
 public class sucesso implements Initializable {
     
     @FXML
@@ -24,9 +22,6 @@ public class sucesso implements Initializable {
     @FXML
     public Button Menu;
     
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
