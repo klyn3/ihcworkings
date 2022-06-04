@@ -5,10 +5,6 @@
  */
 package sudoku;
 
-/**
- *
- * @author claud
- */
 public class timer {
 
     private int horas;
