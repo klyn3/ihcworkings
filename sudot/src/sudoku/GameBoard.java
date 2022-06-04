@@ -13,8 +13,7 @@ public class GameBoard {
     
     int dificuldade;
     int K;
-    /**
-     * *
+    /*
      * @param dificuldade
      * @see Arrays
      */
