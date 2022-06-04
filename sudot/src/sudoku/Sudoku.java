@@ -4,12 +4,6 @@
  * and open the template in the editor.
  */
 package sudoku;
-
-/**
- *
- * @author claud
- */
-/* Java program for Sudoku generator  */
  
 public class Sudoku
 {
