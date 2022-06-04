@@ -25,7 +25,7 @@ public class Encryptor {
     public static void main(String[] args) throws NoSuchAlgorithmException {
         Encryptor encryptor = new Encryptor();
         
-        
+        //chave da encryptação md5
         String password = "monkey123";
         String hashedPass = "cc25c0f861a83f5efadc6e1ba9d1269e";
         
