@@ -56,8 +56,8 @@ public class login {
         if(showPassword.isSelected()){
             passwordTextField.setText(hiddenPasswordTextField.getText());
             passwordTextField.setVisible(true);
-            hiddenPasswordTextField.setVisible(false);
-            return;
+            hiddenPasswordTextField.setVisible(true);
+            //return;
         } else {
         hiddenPasswordTextField.setText(passwordTextField.getText());
         hiddenPasswordTextField.setVisible(true);
@@ -92,6 +92,9 @@ public class login {
                 stage.setTitle("Dificuldade");
                 stage.setScene(new Scene(root));
                 stage.show();
+                
+                Niveisscene niveis = fxmlLoader.getController();
+                niveis.receiveuser(username);
                 
                 Stage thisStage = (Stage) usernameTextField.getScene().getWindow();
                 thisStage.close();

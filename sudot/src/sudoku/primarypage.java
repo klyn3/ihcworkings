@@ -1,8 +1,16 @@
 package sudoku;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +33,9 @@ import javafx.animation.Timeline;
 import javafx.util.Duration;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 
 /**
  * FXML Controller class
@@ -73,7 +84,7 @@ public class primarypage implements Initializable {
     Button Menu;
     @FXML
     Label timer;
-    @FXML
+     @FXML
     Pane whitePane;
 
     timer time = new timer("00:00:00");
@@ -84,6 +95,9 @@ public class primarypage implements Initializable {
     int player_selected_col;
 
     int dif;
+    String user;
+    
+    File file = new File("Tempos.csv");
     /*
 	 * On layout load, initialize the game board, call the drawOnCanvas method
 	 * and instantiate the selected cell.
@@ -114,6 +128,21 @@ public class primarypage implements Initializable {
 
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
+    }
+    
+    public void receiveuser( String user) {
+        this.user = user;
+    }
+    
+    private void writeToFile() throws IOException {
+        String username = user;
+        String Timer = timer.getText();
+        BufferedWriter writer;
+        
+        writer = new BufferedWriter(new FileWriter(file,true));
+        
+        writer.write(username + "," + Timer + "\n");
+        writer.close();
     }
 
     /*
@@ -268,12 +297,20 @@ public class primarypage implements Initializable {
                 stage.show();
                 sucesso sucesso=fxmlLoader.getController();
                 sucesso.labelreset(timer.getText());
+                
+                
 
                 Stage thisStage = (Stage) canvas.getScene().getWindow();
                 thisStage.close();
                 thisStage = null; //libertar memória
             } catch (IOException e) {
             }
+            
+            try {
+            writeToFile();
+            }catch (IOException e) {
+            }
+            System.out.println(user);
         }
 
     }
@@ -435,7 +472,6 @@ public class primarypage implements Initializable {
             timeline.playFromStart();
             currentState = RUNNING;
         }
-        
         if (whitePane.isVisible()){
             whitePane.setVisible(false);
         } else {
